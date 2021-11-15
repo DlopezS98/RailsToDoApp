@@ -1,5 +1,13 @@
-<h1>New Note</h1>
-
-<%= render 'form', note: @note %>
-
-<%= link_to 'Back', notes_path %>
+<div class="row">
+    <div class="col">
+        <div class="row text-center">
+            <h1>New Note</h1>
+        </div>
+        <div class="row">
+            <%= render 'form', note: @note %>
+        </div>
+        <div class="row">
+            <%= link_to 'Go Back', notes_path, class:'nav-link' %>
+        </div>
+    </div>
+</div>
