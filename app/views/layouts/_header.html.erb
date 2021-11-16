@@ -9,10 +9,10 @@
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
               <li class="nav-item">
                 <%= link_to "Home", root_path, class:"nav-link" %>
-              </li>
-              <% if user_signed_in? %>
+            </li>
+            <% if user_signed_in? %>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Notes</a>
+                    <%= link_to "Notes", notes_path, class:"nav-link" %>
                 </li>
               <% end %>
             </ul>

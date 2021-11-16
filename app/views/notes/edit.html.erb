@@ -1,6 +1,18 @@
-<h1>Editing Note</h1>
-
-<%= render 'form', note: @note %>
-
-<%= link_to 'Show', @note %> |
-<%= link_to 'Back', notes_path %>
+<div class="row">
+    <div class="col">
+        <div class="row text-center">
+            <h1>Editing Note</h1>
+        </div>
+        <div class="row">
+            <%= render 'form', note: @note %>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-5 mx-auto">
+                <hr>
+                <%= link_to 'Show', @note %> |
+                <%= link_to 'Back', notes_path %>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
