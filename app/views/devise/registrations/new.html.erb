@@ -1,29 +1,45 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="row">
+  <div class="row text-center">
+    <h2>Sign up</h2>
+    <hr>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="row">
+    <%= render "devise/shared/error_messages", resource: resource %>
   </div>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <div class="card shadow">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <div class="card-body">
+                <div class="form-group mb-3">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+                </div>
+              
+                <div class="form-group mb-3">
+                  <%= f.label :password, class: 'mr-2' %>
+                  <i class="fas fa-info-circle text-primary" title="(<%= @minimum_password_length %> characters minimum)" ></i>
+                  <%= f.password_field :password, autocomplete: "new-password", class:'form-control' %>
+                </div>
+              
+                <div class="form-group mb-3">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                <%= render "devise/shared/links" %>
+              </div>
+              <div class="card-footer d-flex justify-content-end">
+                <div class="actions">
+                  <%= f.submit "Sign up", class: 'btn btn-primary' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
