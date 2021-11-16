@@ -7,7 +7,7 @@ class User < ApplicationRecord
   self.table_name = 'users'
 
   has_many :notes, 
-    class_name: 'note', 
+    class_name: 'Note', 
     foreign_key: 'user_id', 
     primary_key: 'id'
 end
