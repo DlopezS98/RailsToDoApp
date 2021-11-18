@@ -28,6 +28,8 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
+        # send note id through the headers to use into the tests
+        response.set_header("note_id", "#{@note.id}")
         format.html { redirect_to @note, notice: "Note was successfully created." }
         format.json { render :show, status: :created, location: @note }
       else
@@ -41,6 +43,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
+        response.set_header("note_id", "#{@note.id}")
         format.html { redirect_to @note, notice: "Note was successfully updated." }
         format.json { render :show, status: :ok, location: @note }
       else
