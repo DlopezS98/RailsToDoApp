@@ -14,8 +14,22 @@ RSpec.describe User, type: :model do
     end
 
     describe 'precense' do
-      it { is_expected.to validate_presence_of(:email).with_message(/can't be blank/) }
+      it { 
+        is_expected.to validate_presence_of(:email).with_message(/can't be blank/)
+        is_expected.to validate_presence_of(:password).with_message(/can't be blank/)
+      }
     end
-    
+
+    describe 'unique values' do
+      subject { FactoryBot.build(:user) }
+      it { should validate_uniqueness_of(:email).case_insensitive }
+    end
   end
+
+  describe 'relationships' do
+    describe 'association with notes' do
+      it { should have_many(:notes).class_name('Note') }
+    end
+  end
+  
 end
