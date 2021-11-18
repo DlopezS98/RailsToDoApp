@@ -46,6 +46,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   # Signing in via devise
   config.include Devise::Test::ControllerHelpers, type: :controller
+  # Signing in via capybara - optional
+  # config.include Warden::Test::Helpers
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false

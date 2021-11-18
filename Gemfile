@@ -52,6 +52,8 @@ group :test do
   gem 'factory_bot_rails', '~> 6.2'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'shoulda-callback-matchers'
+  # assertions for templates in controllers
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
