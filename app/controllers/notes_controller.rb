@@ -55,10 +55,15 @@ class NotesController < ApplicationController
 
   # DELETE /notes/1 or /notes/1.json
   def destroy
-    @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: "Note was successfully destroyed." }
-      format.json { head :no_content }
+      if @note
+        @note.destroy
+        format.html { redirect_to notes_url, notice: "Note was successfully destroyed." }
+        format.json { head :no_content }
+      else
+        format.html { render :index, status: :not_found }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -66,10 +71,11 @@ class NotesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_note
       @note = Note.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
     end
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.required(:note).permit(:title, :description)
+      params.require(:note).permit(:title, :description)
     end
 end
