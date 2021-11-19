@@ -1,4 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4><%= @note.title %></h4>
+                        <hr>
+                        <p style="text-align: justify;"><%= @note.description %></p>
+                        <div class="fw-light text-end">
+                            <%= @note.created_at.strftime("%a, %B %d, %Y") %>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-end">
+                        <!-- <%= link_to 'Edit', edit_note_path(@note), class:'btn btn-primary btn-sm me-2' %> -->
+                        <%= link_to 'Destroy', @note, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger btn-sm' %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4 mx-auto">
+                <hr>
+                <%= link_to 'Edit', edit_note_path(@note) %> |
+                <%= link_to 'Back', notes_path %>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
