@@ -21,5 +21,15 @@
       <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger btn-sm' %> -->
     <% end %>
     </div>
+    <div class="row mt-5">
+      <div class="col">
+        <div class="row">
+          <h4>DevExtreme and React</h4>
+        </div>
+        <div class="row">
+          <%= react_component("DataGrid", { dataSource: @notes }) %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
