@@ -139,5 +139,16 @@ export default HelloWorld
 <%= react_component("HelloWorld", { greeting: "Hello World!", children: "Children Value" }) %>
 ```
 
-console log output
+console log output.
+
 ![hello-world-react](./app/assets/images/readme/HelloWorld.log.png)
+
+#### Almost done!
+Finally we need to install the types to get the autocomplete and intellisense when we write code
+```console
+yarn add @types/node @types/react @types/react-dom -D
+```
+Also you must to change the import statement of react, like this
+```tsx
+import * as React from "react"
+```

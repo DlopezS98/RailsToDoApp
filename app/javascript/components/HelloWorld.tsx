@@ -1,8 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
+import * as React from "react"
+
 class HelloWorld extends React.Component<IProps> {
 
-  private props: IProps;
+  public props: IProps;
   constructor(_props: IProps){
     super(_props);
     this.props = _props;
