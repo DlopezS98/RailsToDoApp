@@ -87,3 +87,57 @@ And now we can start usign the component `HelloWorld` into our views so for that
 <%= react_component("HelloWorld", { greeting: "Hello World!" }) %>
 ```
 In this case we need to use a rail tag with the name `react_component` and this get 2 parameters, the first is the component name and the second are the props of our component. If you remember when we create the component we set a property named `greeting`. Also you can define many props if you want not only one.
+
+Once that we already have working our react component the next step is start using typescript, so for that reason we need to change some stuffs.
+First add an option in the `tsconfig` file to tell typescript that we're gonna use the react sintax. This options goes into the compilerOptions section
+
+##### _tsconfig.json_
+```json
+{
+  "compilerOptions": {
+    ...,
+    "jsx": "react-jsx"
+  }
+}
+```
+
+So go back and focus in to our file `HelloWorld.js`.
+We need to change the extension file and add `.tsx` instead of `.js`, so the file should show as `HelloWorld.tsx` and then let's change some lines of code and add typescript sintax.
+
+##### _app/javascript/components/HelloWorld.tsx_
+```tsx
+import React from "react"
+import PropTypes from "prop-types"
+class HelloWorld extends React.Component<IProps> {
+
+  private props: IProps;
+  constructor(_props: IProps){
+    super(_props);
+    this.props = _props;
+    console.log(this.props.children) // the children prop is always present in all react components
+    console.log(this.props.greeting)
+  }
+
+  render () {
+    return (
+      <React.Fragment>
+        Greeting: {this.props.greeting}
+      </React.Fragment>
+    );
+  }
+}
+
+interface IProps {
+  children: String;
+  greeting: String;
+}
+
+export default HelloWorld
+```
+##### _<some_file>.html.erb_
+```erb
+<%= react_component("HelloWorld", { greeting: "Hello World!", children: "Children Value" }) %>
+```
+
+console log output
+![hello-world-react](./app/assets/images/readme/HelloWorld.log.png)
