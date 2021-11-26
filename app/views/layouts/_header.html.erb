@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Notes App</a>
+        <a class="navbar-brand" href="">Notes App</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,7 +14,10 @@
                 <li class="nav-item">
                     <%= link_to "Notes", notes_path, class:"nav-link" %>
                 </li>
-              <% end %>
+                <li class="nav-item">
+                    <%= link_to "Dashboard", notes_dashboard_path, class:"nav-link" %>
+                </li>
+            <% end %>
             </ul>
             <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <% if user_signed_in? %>

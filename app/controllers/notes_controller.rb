@@ -7,6 +7,11 @@ class NotesController < ApplicationController
     @notes = Note.where(user_id: current_user.id)
   end
 
+  # GET /notes/dashboard
+  def dashboard
+    @notes = Note.where(user_id: current_user.id)
+  end
+
   # GET /notes/1 or /notes/1.json
   def show
   end

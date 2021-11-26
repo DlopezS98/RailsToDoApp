@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { DataGrid, Column, FilterRow, SearchPanel } from 'devextreme-react/data-grid';
+import { DataGrid as DxDataGrid, Column, FilterRow, SearchPanel } from 'devextreme-react/data-grid';
 import 'devextreme/dist/css/dx.light.css';
 
-export default class DataGridComponent extends React.Component<IProps> {
+import Notes from '../Shared/models/notes';
+
+export default class DataGrid extends React.Component<IProps> {
 
     constructor(props: IProps){
         super(props)
@@ -12,7 +14,7 @@ export default class DataGridComponent extends React.Component<IProps> {
         const { dataSource } = this.props;
         return (
             <div className="mb-5">
-                <DataGrid 
+                <DxDataGrid 
                     dataSource = { dataSource }
                     keyExpr = "id"
                 >
@@ -22,7 +24,7 @@ export default class DataGridComponent extends React.Component<IProps> {
                     <Column dataField="created_at" dataType="date"></Column>
                     <FilterRow visible={true} />
                     <SearchPanel visible={true} />
-                </DataGrid>
+                </DxDataGrid>
             </div>
         )
     }
@@ -30,13 +32,4 @@ export default class DataGridComponent extends React.Component<IProps> {
 
 interface IProps {
     dataSource: Notes[]
-}
-
-class Notes {
-    id: number;
-    title: string;
-    description: string;
-    created_at: Date;
-    updated_at?: Date;
-    deleted: boolean;
 }
