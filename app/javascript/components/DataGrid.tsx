@@ -13,17 +13,17 @@ export default class DataGrid extends React.Component<IProps> {
     render() {
         const { dataSource } = this.props;
         return (
-            <div className="mb-5">
+            <div className = "mb-5">
                 <DxDataGrid 
                     dataSource = { dataSource }
                     keyExpr = "id"
                 >
-                    <Column dataField="id"></Column>
-                    <Column dataField="title"></Column>
-                    <Column dataField="description"></Column>
-                    <Column dataField="created_at" dataType="date"></Column>
-                    <FilterRow visible={true} />
-                    <SearchPanel visible={true} />
+                    <Column dataField = "id"></Column>
+                    <Column dataField = "title"></Column>
+                    <Column dataField = "description"></Column>
+                    <Column dataField = "created_at" dataType = "date"></Column>
+                    <FilterRow visible = {true} />
+                    <SearchPanel visible = {true} />
                 </DxDataGrid>
             </div>
         )

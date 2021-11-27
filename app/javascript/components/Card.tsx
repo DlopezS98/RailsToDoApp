@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component, ReactNode } from 'react'
-import { Card as BCard, Col, Row, Button } from "react-bootstrap";
+import { Card as BscCard, Col, Row, Button } from "react-bootstrap";
 
 export default class Card extends Component<IProps> {
 
@@ -16,19 +16,29 @@ export default class Card extends Component<IProps> {
 
     render() {
         return (
-            <BCard className={'shadow'}>
-                <BCard.Body>
+            <BscCard className={'shadow'}>
+                <BscCard.Body>
                     <h4>{this.props.title}</h4>
                     <hr />
-                    <p style={{ textAlign: "justify" }}>{this.props.description}</p>
-                </BCard.Body>
-                <BCard.Footer className="d-flex align-items-center justify-content-end">
+                    <p style = {{ textAlign: "justify" }}>{this.props.description}</p>
+                </BscCard.Body>
+                <BscCard.Footer 
+                    className = "d-flex align-items-center justify-content-end">
                     <div>
-                        <Button style={{ marginRight: "10px" }} variant="primary" size="sm" onClick={() => this.edit(this.props.actions.edit)}>Edit</Button>
-                        <Button variant="danger" size="sm">Delete</Button>
+                        <Button 
+                            style = {{ marginRight: "10px" }} 
+                            variant = "primary" size="sm" 
+                            onClick = {() => this.edit(this.props.actions.edit)}>
+                            Edit
+                        </Button>
+                        <Button 
+                            variant="danger" 
+                            size="sm">
+                            Delete
+                        </Button>
                     </div>
-                </BCard.Footer>
-            </BCard>
+                </BscCard.Footer>
+            </BscCard>
         )
     }
 }
