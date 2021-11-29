@@ -3,12 +3,14 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "lib": ["es6", "dom"],
     "module": "es6",
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-        "*": ["node_modules/*", "app/javascript/*"]
+        "*": ["node_modules/*", "app/javascript/*"],
+        "@Shared/*": ["app/javascript/Shared/*"]
     },
     "sourceMap": true,
     "target": "es5",
