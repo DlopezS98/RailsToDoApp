@@ -1,8 +1,13 @@
-import * as React from "react";
-import { Component, ReactNode } from 'react'
+// import * as React from "react";
+import React, { Component, ReactNode, MouseEvent } from 'react'
 import { Card as BscCard, Col, Row, Button } from "react-bootstrap";
+import Alert from "./Alert"
 
-export default class Card extends Component<IProps> {
+export default class Card extends Component<IProps, IState> {
+
+    public state: IState = {
+        showModal: false
+    }
 
     constructor(props: IProps) {
         super(props);
@@ -14,7 +19,13 @@ export default class Card extends Component<IProps> {
         location.href = `${baseUrl}${url}`;
     }
 
+    handleClose = (event: MouseEvent<HTMLButtonElement>) => {
+        console.log(event);
+        this.setState({ showModal: !this.state.showModal });
+    }
+
     render() {
+        const { showModal } = this.state;
         return (
             <BscCard className={'shadow'}>
                 <BscCard.Body>
@@ -32,12 +43,18 @@ export default class Card extends Component<IProps> {
                             Edit
                         </Button>
                         <Button 
-                            variant="danger" 
-                            size="sm">
+                            variant = "danger" 
+                            size = "sm"
+                            onClick = { this.handleClose }>
                             Delete
                         </Button>
                     </div>
                 </BscCard.Footer>
+                <Alert 
+                    title = "Are you sure to delete this note?"
+                    message = "Some message"
+                    show = { showModal }
+                    handleClose = { this.handleClose } />
             </BscCard>
         )
     }
@@ -47,6 +64,10 @@ interface IProps {
     title: String;
     description: String;
     actions: ActionUrls;
+}
+
+interface IState {
+    showModal: boolean;
 }
 
 type ActionUrls = {

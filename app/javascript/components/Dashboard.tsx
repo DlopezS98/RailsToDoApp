@@ -37,7 +37,7 @@ export default class Dashboard extends React.Component<IProps> {
                         >
                             <Card 
                                 key = { note.id }
-                                title = {note.title} 
+                                title = { note.title } 
                                 description = { note.description } 
                                 actions = { { edit: 'url', delete: 'delete' } }
                             />
