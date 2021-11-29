@@ -148,7 +148,28 @@ Finally we need to install the types to get the autocomplete and intellisense wh
 ```console
 yarn add @types/node @types/react @types/react-dom -D
 ```
-Also you must to change the import statement of react, like this
+Also you should to change the import statement of react, like this
 ```tsx
 import * as React from "react"
 ```
+Other alternative is to add a configuration into the `tsconfig.json` to allow use the import statement showed above
+```json
+{
+  "compilerOptions": {
+    ...,
+    "allowSyntheticDefaultImports": true
+  },
+  ...
+}
+```
+
+### Setup [css & scss] modules to use into our components
+In this case when we install all the dependencies related to react, there's a denpendency that was not installed and also is required to use the styles modules. So let's install it.
+```console
+yarn add react-scripts
+```
+Now let's create a file named `react-app-env.d.ts` and put the code below
+```ts
+/// <reference types="react-scripts" />
+```
+And that's it, now we may be able to start using the styles modules
