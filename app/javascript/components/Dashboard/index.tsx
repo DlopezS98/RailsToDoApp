@@ -5,7 +5,8 @@ import { TabParams } from '@Components/Tabs/types';
 import Notes from '@Shared/models/notes';
 import Tabs from "@Components/Tabs";
 import Card from "@Components/Card";
-import DataGrid from "@Components/DataGrid"; 
+import DataGrid from "@Components/DataGrid";
+import HelloWorld from '@Components/HelloWorld';
 import { IProps } from "./types";
 
 export default class Dashboard extends React.Component<IProps> {
@@ -20,7 +21,8 @@ export default class Dashboard extends React.Component<IProps> {
     getTabParams(): TabParams[] {
         const { notes } = this.props;
         let tabs: TabParams[] = [
-            { key: "home", caption: "Cards", component: this.createCards(notes) },
+            { key: "home", caption: "Hello World", component: <HelloWorld /> },
+            { key: "cards", caption: "Cards", component: this.createCards(notes) },
             { key: "details", caption: "Grid", component: <DataGrid dataSource = { notes } /> },
         ]
         return tabs;

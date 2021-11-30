@@ -8,7 +8,7 @@ export interface IProps {
     handleClose(event: MouseEvent<HTMLButtonElement>): void;
 }
 
-export const styles: Styles<IStyleProps> = {
+export const styles: Styles<IStyleKeys> = {
   AxisXEnd: {
     display: "flex",
     justifyContent: "end",
@@ -16,6 +16,6 @@ export const styles: Styles<IStyleProps> = {
   }
 }
 
-interface IStyleProps {
+interface IStyleKeys {
     AxisXEnd
 }

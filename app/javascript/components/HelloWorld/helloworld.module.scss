@@ -1,0 +1,55 @@
+.axis-xy-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.terminal {
+    @extend .shadow;
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    // padding: 45px 12px 12px 12px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+    display: flex;
+    align-items: center;
+
+    &::before {
+        content: "\2022 \2022 \2022";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgb(58, 58, 58);
+        color: #c2c3c4;
+        width: 100%;
+        font-size: 2rem;
+        line-height: 0;
+        padding: 15px 0 14px 12px;
+        text-indent: 4px;
+        text-align: left;
+    }
+
+    pre {
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+        color: #fff;
+        padding: 0 1rem 1rem;
+        margin: 0;
+
+        span {
+            animation: blinker 1s linear infinite;
+        }
+    }
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
