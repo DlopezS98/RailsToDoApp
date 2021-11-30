@@ -10,8 +10,8 @@
     "baseUrl": ".",
     "paths": {
         "*": ["node_modules/*"],
-        "@shared/*": ["app/javascript/shared/*"],
-        "@components/*": ["app/javascript/components/*"]
+        "@Shared/*": ["app/javascript/shared/*"],
+        "@Components/*": ["app/javascript/components/*"]
     },
     "sourceMap": true,
     "target": "es5",

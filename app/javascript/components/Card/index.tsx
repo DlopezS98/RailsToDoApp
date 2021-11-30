@@ -1,7 +1,7 @@
 import React, { Component, MouseEvent } from 'react'
 import { Card as BscCard, Col, Row, Button } from "react-bootstrap";
 
-import Modal from "../Modal"
+import Modal from "@Components/Modal";
 import { IProps, IState } from "./types";
 
 export default class Card extends Component<IProps, IState> {

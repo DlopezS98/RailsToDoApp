@@ -1,3 +1,6 @@
-const { environment } = require('@rails/webpacker')
+const { environment } = require('@rails/webpacker');
+const paths = require('./paths.resolve');
 
-module.exports = environment
+environment.config.merge(paths);
+
+module.exports = environment;

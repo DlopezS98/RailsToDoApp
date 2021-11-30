@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import { Styles } from "@shared/types/common.types";
+import { Styles } from "@Shared/types/common.types";
 
 export interface IProps {
     title: string;
