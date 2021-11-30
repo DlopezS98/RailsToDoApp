@@ -1,8 +1,8 @@
 import React from "react";
-import { Modal, Button, Row, Col } from "react-bootstrap";
+import { Modal as BscModal, Button, Row, Col } from "react-bootstrap";
 import { IProps, styles } from "./types";
 
-export default class Alert extends React.Component<IProps> {
+export default class Modal extends React.Component<IProps> {
 
     constructor(props: IProps){
         super(props);
@@ -11,10 +11,10 @@ export default class Alert extends React.Component<IProps> {
     render() {
         const { title, message, handleClose, show } = this.props;
         return (
-            <Modal 
+            <BscModal 
                 show = { show }
                 onHide = { handleClose } >
-                <Modal.Body>
+                <BscModal.Body>
                     <Row>
                         <Col>
                             { title }
@@ -31,8 +31,8 @@ export default class Alert extends React.Component<IProps> {
                             </Button>
                         </Col>
                     </Row>
-                </Modal.Body>
-            </Modal>
+                </BscModal.Body>
+            </BscModal>
         )
     }
 }

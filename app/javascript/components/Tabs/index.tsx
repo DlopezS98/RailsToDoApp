@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Tabs as BscTabs, Tab } from "react-bootstrap";
-import { TabParams } from "../Shared/types/Tabs";
+
+import { IProps, IState } from "./types";
 
 export default class Tabs extends React.Component<IProps, IState> {
 
@@ -33,12 +34,4 @@ export default class Tabs extends React.Component<IProps, IState> {
             </BscTabs>
         )
     }
-}
-
-interface IProps {
-    tabs: TabParams[]
-}
-
-interface IState {
-    currentKey: string;
 }

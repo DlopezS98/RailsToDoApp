@@ -9,8 +9,9 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-        "*": ["node_modules/*", "app/javascript/*"],
-        "@Shared/*": ["app/javascript/Shared/*"]
+        "*": ["node_modules/*"],
+        "@shared/*": ["app/javascript/shared/*"],
+        "@components/*": ["app/javascript/components/*"]
     },
     "sourceMap": true,
     "target": "es5",

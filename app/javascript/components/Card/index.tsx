@@ -1,7 +1,8 @@
-// import * as React from "react";
-import React, { Component, ReactNode, MouseEvent } from 'react'
+import React, { Component, MouseEvent } from 'react'
 import { Card as BscCard, Col, Row, Button } from "react-bootstrap";
-import Alert from "./Alert"
+
+import Modal from "../Modal"
+import { IProps, IState } from "./types";
 
 export default class Card extends Component<IProps, IState> {
 
@@ -50,7 +51,7 @@ export default class Card extends Component<IProps, IState> {
                         </Button>
                     </div>
                 </BscCard.Footer>
-                <Alert 
+                <Modal 
                     title = "Are you sure to delete this note?"
                     message = "Some message"
                     show = { showModal }
@@ -58,19 +59,4 @@ export default class Card extends Component<IProps, IState> {
             </BscCard>
         )
     }
-}
-
-interface IProps {
-    title: String;
-    description: String;
-    actions: ActionUrls;
-}
-
-interface IState {
-    showModal: boolean;
-}
-
-type ActionUrls = {
-    edit: string;
-    delete: string;
 }

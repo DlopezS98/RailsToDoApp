@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { TabParams } from 'Shared/types/Tabs';
 import { Row, Col } from "react-bootstrap";
 
-import Notes from '../Shared/models/notes';
-import Tabs from "./Tabs";
-import Card from "./Card";
-import DataGrid from './DataGrid'; 
+import { TabParams } from '@components/Tabs/types';
+import Notes from '@shared/models/notes';
+import Tabs from "@components/Tabs";
+import Card from "@components/Card";
+import DataGrid from "@components/DataGrid"; 
+import { IProps } from "./types";
 
 export default class Dashboard extends React.Component<IProps> {
 
@@ -55,8 +56,4 @@ export default class Dashboard extends React.Component<IProps> {
             </div>
         )
     }
-}
-
-interface IProps {
-    notes: Notes[];
 }

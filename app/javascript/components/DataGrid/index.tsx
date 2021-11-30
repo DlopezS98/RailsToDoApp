@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DataGrid as DxDataGrid, Column, FilterRow, SearchPanel } from 'devextreme-react/data-grid';
 import 'devextreme/dist/css/dx.light.css';
 
-import Notes from '../Shared/models/notes';
+import { IProps } from "./types";
 
 export default class DataGrid extends React.Component<IProps> {
 
@@ -28,8 +28,4 @@ export default class DataGrid extends React.Component<IProps> {
             </div>
         )
     }
-}
-
-interface IProps {
-    dataSource: Notes[]
 }
