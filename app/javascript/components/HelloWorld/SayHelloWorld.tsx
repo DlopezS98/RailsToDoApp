@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from 'react'
 
 class SayHelloWorld extends React.Component<IProps> {
 
@@ -16,7 +16,7 @@ class SayHelloWorld extends React.Component<IProps> {
 }
 
 interface IProps {
-  greeting: String;
+  greeting: string;
 }
 
 export default SayHelloWorld

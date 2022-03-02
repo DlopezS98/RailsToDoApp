@@ -1,10 +1,10 @@
-import React, { ChangeEvent } from "react";
-import { Row, Col, FloatingLabel, Form } from "react-bootstrap"
-import Styles from "./helloworld.module.scss";
+import React, { ChangeEvent } from 'react';
+import { Row, Col, FloatingLabel, Form } from 'react-bootstrap'
+import Styles from './helloworld.module.scss';
 class HelloWorld extends React.Component<IProps, IState> {
 
   public state: IState = {
-    message: "Hello World"
+    message: 'Hello World'
   }
 
   constructor(props: IProps){
@@ -33,7 +33,7 @@ class HelloWorld extends React.Component<IProps, IState> {
             </Col>
           </Row>
           <Row>
-            <Col sm = {7} className = { `${Styles["axis-xy-center"]} mx-auto` }>
+            <Col sm = {7} className = { `${Styles['axis-xy-center']} mx-auto` }>
               <div className = { Styles.terminal }>
                 <pre>{ `> ${message}` }<span>_</span></pre>
               </div>
@@ -46,7 +46,7 @@ class HelloWorld extends React.Component<IProps, IState> {
 }
 
 interface IProps {
-  greeting?: String;
+  greeting?: string;
 }
 
 interface IState {

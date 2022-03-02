@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DataGrid as DxDataGrid, Column, FilterRow, SearchPanel } from 'devextreme-react/data-grid';
 import 'devextreme/dist/css/dx.light.css';
 
-import { IProps } from "./types";
+import { IProps } from './types';
 
 export default class DataGrid extends React.Component<IProps> {
 

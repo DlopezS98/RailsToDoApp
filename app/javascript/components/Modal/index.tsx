@@ -1,6 +1,6 @@
-import React from "react";
-import { Modal as BscModal, Button, Row, Col } from "react-bootstrap";
-import { IProps, styles } from "./types";
+import React from 'react';
+import { Modal as BscModal, Button, Row, Col } from 'react-bootstrap';
+import { IProps, styles } from './types';
 
 export default class Modal extends React.Component<IProps> {
 

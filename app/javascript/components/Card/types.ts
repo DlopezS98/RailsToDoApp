@@ -1,6 +1,6 @@
 export interface IProps {
-    title: String;
-    description: String;
+    title: string;
+    description: string;
     actions: ActionUrls;
 }
 

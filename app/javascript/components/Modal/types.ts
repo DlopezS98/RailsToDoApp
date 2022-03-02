@@ -1,5 +1,5 @@
-import { MouseEvent } from "react";
-import { Styles } from "@Shared/types/common.types";
+import { MouseEvent } from 'react';
+import { Styles } from '@Shared/types/common.types';
 
 export interface IProps {
     title: string;
@@ -10,9 +10,9 @@ export interface IProps {
 
 export const styles: Styles<IStyleKeys> = {
   AxisXEnd: {
-    display: "flex",
-    justifyContent: "end",
-    alignItems: "center"
+    display: 'flex',
+    justifyContent: 'end',
+    alignItems: 'center'
   }
 }
 

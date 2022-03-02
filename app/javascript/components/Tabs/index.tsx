@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { Tabs as BscTabs, Tab } from "react-bootstrap";
+import { Tabs as BscTabs, Tab } from 'react-bootstrap';
 
-import { IProps, IState } from "./types";
+import { IProps, IState } from './types';
 
 export default class Tabs extends React.Component<IProps, IState> {
 

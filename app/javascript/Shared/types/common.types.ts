@@ -1,5 +1,5 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export type Styles<T> = {
-    [key in keyof T]: CSSProperties
-}
+  [key in keyof T]: CSSProperties;
+};

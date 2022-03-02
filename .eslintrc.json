@@ -1,0 +1,120 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "commonjs": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "eslint-config-prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "rules": {
+        "@typescript-eslint/no-empty-interface": "error",
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": [
+            "error"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "switch-colon-spacing": [
+            "error",
+            {
+                "after": true,
+                "before": false
+            }
+        ],
+        "template-curly-spacing": [
+            "error",
+            "never"
+        ],
+        "space-before-blocks": [
+            "error",
+            {
+                "functions": "always",
+                "keywords": "always",
+                "classes": "always"
+            }
+        ],
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
+        "arrow-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "no-whitespace-before-property": [
+            "error"
+        ],
+        "space-unary-ops": [
+            1,
+            {
+                "words": true,
+                "nonwords": false,
+                "overrides": {
+                    "new": false,
+                    "++": false
+                }
+            }
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "caughtErrors": "all"
+            }
+        ],
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/consistent-type-definitions": [
+            "error",
+            "interface"
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+            "error"
+        ],
+        "@typescript-eslint/no-throw-literal": [
+            "error"
+        ]
+    },
+    "overrides": [
+        {
+            "files": "*.js",
+            "rules": {
+                "@typescript-eslint/no-var-requires": "off",
+                "@typescript-eslint/explicit-function-return-type": "off"
+            }
+        }
+    ]
+}

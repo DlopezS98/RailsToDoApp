@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { Row, Col } from "react-bootstrap";
+import { Row, Col } from 'react-bootstrap';
 
 import { TabParams } from '@Components/Tabs/types';
 import Notes from '@Shared/models/notes';
-import Tabs from "@Components/Tabs";
-import Card from "@Components/Card";
-import DataGrid from "@Components/DataGrid";
+import Tabs from '@Components/Tabs';
+import Card from '@Components/Card';
+import DataGrid from '@Components/DataGrid';
 import HelloWorld from '@Components/HelloWorld';
-import { IProps } from "./types";
+import { IProps } from './types';
 
 export default class Dashboard extends React.Component<IProps> {
 
@@ -20,10 +20,10 @@ export default class Dashboard extends React.Component<IProps> {
 
     getTabParams(): TabParams[] {
         const { notes } = this.props;
-        let tabs: TabParams[] = [
-            { key: "home", caption: "Hello World", component: <HelloWorld /> },
-            { key: "cards", caption: "Cards", component: this.createCards(notes) },
-            { key: "details", caption: "Grid", component: <DataGrid dataSource = { notes } /> },
+        const tabs: TabParams[] = [
+            { key: 'home', caption: 'Hello World', component: <HelloWorld /> },
+            { key: 'cards', caption: 'Cards', component: this.createCards(notes) },
+            { key: 'details', caption: 'Grid', component: <DataGrid dataSource = { notes } /> },
         ]
         return tabs;
     }
