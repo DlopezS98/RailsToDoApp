@@ -1,5 +1,5 @@
 # Add React components & Typescript into rails application
-Make sure thta you already have the webpacker package installed
+Make sure that you already have the webpacker package installed
 ```console
 rails webpacker:install
 ```
@@ -88,8 +88,27 @@ And now we can start usign the component `HelloWorld` into our views so for that
 ```
 In this case we need to use a rail tag with the name `react_component` and this get 2 parameters, the first is the component name and the second are the props of our component. If you remember when we create the component we set a property named `greeting`. Also you can define many props if you want not only one.
 
-Once that we already have working our react component the next step is start using typescript, so for that reason we need to change some stuffs.
-First add an option in the `tsconfig` file to tell typescript that we're gonna use the react sintax. This options goes into the compilerOptions section
+### Typescript setup
+
+Once that we already have working our react component the next step is start using typescript, so for that reason we need to change some stuffs. Before all create a config file to support typescript, we can create it manually or via command line. And it's as follows:
+
+```powershell
+tsc --init
+```
+
+if you don't have the `tsc` typescript package installed globally you need to install it or just using npx, in the way you feel more comfortable.
+```powershell
+npm install --global typescript
+```
+Then you'll be able to use tsc commands (restart the terminal).
+```powershell
+tsc --init
+```
+or using npx
+```powershell
+npx tsc --init
+```
+The above command will create a file `tsconfig.ts` that contains basic settings of typescript like the `compilerOptions`. So, let's get started setting up some things. Add an option in to our config file to tell typescript that we're gonna use the react sintax. This options goes into the compilerOptions section. Note: The `tsconfig.ts` must be in the root directory of our project.
 
 ##### _tsconfig.json_
 ```json
@@ -280,7 +299,7 @@ code --install-extension esbenp.prettier-vscode
 ### Addtional setup
 let's go and put some scripts inside of our package.json to run the eslint over the files, but before we need to know some things that are very important.
 
-we have different ways to run eslint. The first one is run eslint with a specific file that doesn't have the required name set by eslint `.eslintrc.(<json> | <yml> | <js>)`. The `allowed extensions` should be json, yaml or javascript. So, supose that we have a different named file instead of `.eslintrc`. We can execute it as follows:
+we have different ways to run eslint. The first one it's, run eslint with a specific file that doesn't have the required name set by eslint `.eslintrc.(<json> | <yml> | <js>)`. The `allowed extensions` should be json, yaml or javascript. So, supose that we have a different named file instead of `.eslintrc`. We can execute it as follows:
 ```powershell
 npx eslint -c .my-other-eslint-file.json app/javascript/**
 ```
@@ -289,7 +308,7 @@ Or via node_modules (only in OS based on unix):
 ```
 ./node_modules/.bin/eslint -c .my-other-eslint-file.json app/javascript/**
 ```
-Therefore, the above commands are being executed with a specific path where the javascript/typescript files are located.
+At the same time, the above commands are being executed with a specific path where the javascript/typescript files are located.
 
 So, the second option that we have it's just simply execute as below. Note that we do not have to specify a config file because in this case eslint already knows which file to use and then apply the rules that are inside of our config file `.eslintrc.json`. Eslint looks for a file with a pattern `.eslintrc.<allowed-extensions>`. So, that's why we don't have to tell it which file to use.
 
