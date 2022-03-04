@@ -1,41 +1,43 @@
 import React, { ChangeEvent } from 'react';
-import { Row, Col, FloatingLabel, Form } from 'react-bootstrap'
+import { Row, Col, Form } from 'react-bootstrap';
 import Styles from './helloworld.module.scss';
 class HelloWorld extends React.Component<IProps, IState> {
-
   public state: IState = {
-    message: 'Hello World'
-  }
+    message: 'Hello World',
+  };
 
-  constructor(props: IProps){
+  constructor(props: IProps) {
     super(props);
   }
 
-  handleInputValue = (event: ChangeEvent<HTMLInputElement>) => {
+  handleInputValue = (event: ChangeEvent<HTMLInputElement>): void => {
     const { target } = event;
-    this.setState({ message: target.value })
-  }
+    this.setState({ message: target.value });
+  };
 
-  render () {
+  render(): JSX.Element {
     const { message } = this.state;
     return (
-      <Row className = "mt-3">
+      <Row className="mt-3">
         <Col>
           <Row>
-            <Col sm = {7} className = "mx-auto">
-                <Form.Control 
-                  size = "sm" 
-                  type = "text" 
-                  placeholder = "Hello World..."
-                  value = { message }
-                  onChange = { this.handleInputValue }
-                />
+            <Col sm={7} className="mx-auto">
+              <Form.Control
+                size="sm"
+                type="text"
+                placeholder="Hello World..."
+                value={message}
+                onChange={this.handleInputValue}
+              />
             </Col>
           </Row>
           <Row>
-            <Col sm = {7} className = { `${Styles['axis-xy-center']} mx-auto` }>
-              <div className = { Styles.terminal }>
-                <pre>{ `> ${message}` }<span>_</span></pre>
+            <Col sm={7} className={`${Styles['axis-xy-center']} mx-auto`}>
+              <div className={Styles.terminal}>
+                <pre>
+                  {`> ${message}`}
+                  <span>_</span>
+                </pre>
               </div>
             </Col>
           </Row>
@@ -53,4 +55,4 @@ interface IState {
   message: string;
 }
 
-export default HelloWorld
+export default HelloWorld;

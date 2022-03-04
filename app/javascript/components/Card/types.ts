@@ -8,7 +8,7 @@ export interface IState {
     showModal: boolean;
 }
 
-export type ActionUrls = {
+export interface ActionUrls {
     edit: string;
     delete: string;
 }

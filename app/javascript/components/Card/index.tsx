@@ -1,4 +1,4 @@
-import React, { Component, MouseEvent } from 'react';
+import React, { Component } from 'react';
 import { Card as BscCard, Button } from 'react-bootstrap';
 
 import Modal from '@Components/Modal';
@@ -18,7 +18,7 @@ export default class Card extends Component<IProps, IState> {
     const baseUrl: string = location.origin;
     location.href = `${baseUrl}${url}`;
   }
-  handleClose = (event: MouseEvent<HTMLButtonElement>): void => {
+  handleClose = (): void => {
     this.setState({ showModal: !this.state.showModal });
   };
   render(): JSX.Element {
@@ -36,7 +36,7 @@ export default class Card extends Component<IProps, IState> {
               style={{ marginRight: '10px' }}
               variant="primary"
               size="sm"
-              onClick={() => this.edit(this.props.actions.edit)}>
+              onClick={(): void => this.edit(this.props.actions.edit)}>
               Edit
             </Button>
             <Button variant="danger" size="sm" onClick={this.handleClose}>

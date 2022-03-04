@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export type TabParams = {
+export interface TabParams {
     key: string,
     caption: string,
     component: ReactNode
