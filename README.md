@@ -152,7 +152,7 @@ Also you should to change the import statement of react, like this
 ```tsx
 import * as React from "react"
 ```
-Other alternative is to add a configuration into the `tsconfig.json` to allow use the import statement showed above
+Other alternative is adding a configuration into the `tsconfig.json` to allow use the import statement: `{ import React from "react" }`
 ```json
 {
   "compilerOptions": {
@@ -173,3 +173,144 @@ Now let's create a file named `react-app-env.d.ts` and put the code below
 /// <reference types="react-scripts" />
 ```
 And that's it, now we may be able to start using the styles modules
+
+## Adding eslint & prettier
+### Packages
+```cmd
+npm install eslint-config-prettier eslint-plugin-import eslint-plugin-prettier prettier prettier-eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-plugin-react
+```
+
+We need to create a setting file for eslint & prettier in the root directory of the project.
+
+(powershell)
+```powershell
+ni .eslintrc.json && ni .prettierrc.json
+```
+additionally create a ignore file `.eslintignore` to don't track unnecessary files like the ones in the `node_modules`
+```powershell
+ni .eslintignore
+```
+
+### _.eslintrc.json_
+```json
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "commonjs": true
+    },
+    "extends": [ //legacy rules
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier",
+        "eslint-plugin-react"
+    ],
+    "rules": {
+      // setup your rules here like below...
+      "@typescript-eslint/no-unused-vars": "error",
+      "no-console": ["error"]
+    },
+    "overrides": [{
+      // override some configurations for other types of files like javascript
+    }]
+}
+```
+See more settings in the repo...
+
+### _.prettierrc.json_
+```json
+{
+    "singleQuote": true,
+    "semi": true,
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "tabWidth": 2,
+    "parser": "typescript",
+    "bracketSameLine": true,
+    "endOfLine": "lf",
+    "trailingComma": "es5"
+}
+```
+
+### _.eslintignore_
+```
+# ignore definition types...
+**/*.d.ts
+# builded assets
+public/**
+lib/**
+.yarn/**
+
+# packages
+node_modules/**
+
+# other files...
+*.scss
+*.css
+```
+
+### Almost done.
+also we need to install the recommended plugin for vscode and work with eslint & prettier, we have different ways to install plugins inside of vscode and one of them is via marketplace extension and command line. I'm gonna show you how to install with command line. it's like this: `code --install-extension (<extension-id> | <extension-vsix-path>)`. In this case we're gonna use the extension id and the other way is with the downloaded package (local file. specify the path where it's located). References: [vscode-docs](https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management)
+
+#### _eslint_
+
+```powershell
+code --install-extension dbaeumer.vscode-eslint
+```
+#### _prettier_
+```powershell
+code --install-extension esbenp.prettier-vscode
+```
+
+### Addtional setup
+let's go and put some scripts inside of our package.json to run the eslint over the files, but before we need to know some things that are very important.
+
+we have different ways to run eslint. The first one is run eslint with a specific file that doesn't have the required name set by eslint `.eslintrc.(<json> | <yml> | <js>)`. The `allowed extensions` should be json, yaml or javascript. So, supose that we have a different named file instead of `.eslintrc`. We can execute it as follows:
+```powershell
+npx eslint -c .my-other-eslint-file.json app/javascript/**
+```
+Or via node_modules (only in OS based on unix):
+
+```
+./node_modules/.bin/eslint -c .my-other-eslint-file.json app/javascript/**
+```
+Therefore, the above commands are being executed with a specific path where the javascript/typescript files are located.
+
+So, the second option that we have it's just simply execute as below. Note that we do not have to specify a config file because in this case eslint already knows which file to use and then apply the rules that are inside of our config file `.eslintrc.json`. Eslint looks for a file with a pattern `.eslintrc.<allowed-extensions>`. So, that's why we don't have to tell it which file to use.
+
+```powershell
+npx eslint app/javascript/**
+```
+
+So, our `package.json` file looks like this:
+
+```json
+"scripts": {
+    "eslint": "eslint app/javascript/**", // run eslint and look for errors / warnings
+    "eslint:fix": "eslint app/javascript/** --fix" // eslint fixes problems by itself where is posible, otherwise you must to change it manually
+  },
+```
+
+Note that package.json infers that we are gonna execute the above commands with node and there's no need to put the npx keyword before the script. Then just call the script as:
+```powershell
+npm run eslint
+```
+or
+```powershell
+npm run eslint:fix
+```
