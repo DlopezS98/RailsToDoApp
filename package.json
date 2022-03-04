@@ -1,6 +1,10 @@
 {
   "name": "rails-to-do-app",
   "private": true,
+  "scripts": {
+    "eslint:tsc": "eslint -c .eslintrc.json app/javascript/**",
+    "eslint:tsc:fix": "eslint -c .eslintrc.json app/javascript/** --fix"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",

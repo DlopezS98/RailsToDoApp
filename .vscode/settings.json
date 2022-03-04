@@ -1,7 +1,18 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "emmet.includeLanguages": {
+        "erb": "html",
+        "html.erb": "html"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "files.associations": {
+        "*.html.erb": "html"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true
 }

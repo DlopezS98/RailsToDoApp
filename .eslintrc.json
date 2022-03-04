@@ -25,7 +25,8 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "eslint-plugin-react"
     ],
     "rules": {
         "@typescript-eslint/no-empty-interface": "error",
@@ -84,19 +85,13 @@
                 }
             }
         ],
-        "no-unused-vars": [
-            "error",
-            {
-                "vars": "all",
-                "caughtErrors": "all"
-            }
-        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/no-inferrable-types": "error",
         "@typescript-eslint/object-curly-spacing": [
             "error",
             "always"
         ],
-        "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/consistent-type-definitions": [
             "error",
             "interface"
@@ -111,9 +106,39 @@
     "overrides": [
         {
             "files": "*.js",
+            "env": {
+                "browser": true,
+                "jquery": true,
+                "es6": true,
+                "commonjs": false
+            },
+            "parserOptions": {
+                "ecmaFeatures": {
+                    "jsx": true
+                },
+                "sourceType": "script",
+                "ecmaVersion": 8
+            },
             "rules": {
                 "@typescript-eslint/no-var-requires": "off",
-                "@typescript-eslint/explicit-function-return-type": "off"
+                "@typescript-eslint/explicit-function-return-type": "off",
+                "@typescript-eslint/no-unused-vars": "off",
+                "@typescript-eslint/no-throw-literal": "off",
+                "@typescript-eslint/object-curly-spacing": [
+                    "error",
+                    "never"
+                ],
+                "@typescript-eslint/no-empty-function": "off",
+                "@typescript-eslint/no-array-constructor": "off",
+                "@typescript-eslint/no-this-alias": "off",
+                "no-undef": "off",
+                "no-unused-vars": [
+                    "error",
+                    {
+                        "vars": "local",
+                        "args": "after-used"
+                    }
+                ]
             }
         }
     ]

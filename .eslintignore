@@ -1,0 +1,11 @@
+# ignore definition types...
+**/*.d.ts
+# builded assets
+public/**
+lib/**
+.yarn/**
+
+# packages
+node_modules/**
+*.scss
+*.css
